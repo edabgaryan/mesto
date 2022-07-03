@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mesto</title>
+</head>
+<body class="page">
+    <!-- Section Header -->
+    <header class="header">
+        <a class="header__logo" href="#"><img class="header__pic" src="./images/logo.svg" alt="логотип"></a>
+    </header>
+    <main>
+    <!--Section Profile -->
+        <section class="profile">
+            <div class="profile__inner">
+                <img class="profile__ahutor" src="./images/ahutor-logo.jpg" alt="Аватарка">
+                <div class="profile__info">
+                    <div class="profile__wrapper">
+                        <h1 class="profile__title">Жак-Ив Кусто</h1>
+                        <button type="button" aria-label="Изменить Информацию" class="profile__info-button"></button>
+                    </div>
+                    <p class="profile__paragraph" maxlength="40">Исследователь океана</p>
+                </div>
+            </div>
+            <button type="button" aria-label="Добавить Место" class="profile__add-button"></button>
+        </section>
+        <section class="elements">
+            <ul class="elements__cards">
+                <template class="template">
+                    <li class="card">
+                        <img class="card__image">
+                        <button aria-label="Delete" class="card__button-delete" type="button"></button>
+                        <div class="card__body">
+                            <h2 class="card__title"></h2>
+                            <button aria-label="Like" class="card__like " type="button"></button>
+                        </div>
+                    </li>
+                </template>
+            </ul>
+        </section>
+    </main>
+        <footer class="footer">
+            <p class="footer__copyrights">© 2022 Mesto Russia</p>
+        </footer>
+        <!-- Popup Info -->
+        <div class="popup popup_form_profile">
+            <div class="popup__container">
+                <button aria-label="Close" type="button" class="popup__close"></button>
+                <div class="popup__content">
+                    <h2 class="popup__title">Редактировать профиль</h2>
+                    <form class="popup__form popup__form-name" name="info-user" method="get" novalidate>
+                        <input class="popup__input popup__input_form_name" type="text" name="popup__input-text_fullname" value="" minlength="2" maxlength="40" placeholder="Имя" required>
+                        <span class="popup__input-text popup__input-text_fullname-error"></span>
+                        <input class="popup__input popup__input_form_profession" type="text" name="popup__input-text_profession" value="" minlength="2" maxlength="200" placeholder="Профессия" required>
+                        <span class="popup__input-text popup__input-text_profession-error"></span>
+                        <input class="popup__form-btn" aria-label="Save" type="submit" value="Сохранить">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- Popup ADD -->
+        <div class="popup popup_form_add">
+            <div class="popup__container">
+                <button class="popup__close" type="reset"></button>
+                <div class="popup__content">
+                    <h2 class="popup__title">Новое место</h2>
+                    <form class="popup__form popup__form-place" name="info-place" method="get" novalidate> 
+                            <input class="popup__input  popup__input_form_name-place" type="text" name="popup__input-text_name-place" value="" placeholder="Название" minlength="2" maxlength="30" required/>
+                            <span class="popup__input-text popup__input-text_name-place-error"></span>
+                            <input class="popup__input popup__input_form_source-on-place" type="url" name="popup__input-text_source-on-place" value="" placeholder="Ссылка на картинку" required/>
+                            <span class="popup__input-text popup__input-text_source-on-place-error"></span>
+                            <input class="popup__form-btn" aria-label="Create" type="submit" value="Создать">
+                    </form> 
+                </div>
+            </div>
+        </div>
+        <!-- Popup Image -->
+        <div class="popup popup_open_picture">
+            <figure class="popup__figure">
+                <button aria-label="Close" class="popup__close" type="button"></button>
+                <img class="popup__picture">
+                <figcaption class="popup__figcaption"></figcaption>
+            </figure>
+        </div>
+</body>
+</html>

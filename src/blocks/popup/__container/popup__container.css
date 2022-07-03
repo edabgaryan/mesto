@@ -1,0 +1,29 @@
+.popup__container {
+    position: relative;
+    width: 430px;
+    height: 330px;
+    color: white;
+    background: #FFFFFF;
+    border-radius: 10px;
+    margin: auto;
+    padding: 0;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+}
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+}
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+@media (max-width: 619px)  {
+    .popup__container {
+        width: 282px;
+        min-height: 322px;
+    }
+}
