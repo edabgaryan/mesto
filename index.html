@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/style.css">
+    <title>Mesto</title>
+</head>
+<body class="page">
+    <!-- Section Headser -->
+    <header class="header">
+        <a class="header__logo" href="#"><img class="header__pic" src="./images/logo.svg" alt="логотип"></a>
+    </header>
+    <!--Section Profile -->
+        <section class="profile">
+            <div class="profile__inner">
+                <a href="#"><img class="profile__ahutor" src="./images/ahutor-logo.jpg" alt="Аватарка"></a>
+                <div class="profile__info">
+                    <div class="profile__info-wrapper">
+                        <h2 id="userName" class="profile__info-title"></h2>
+                        <button id="myBtn" class="profile__info-title-btn"></button>
+                    </div>
+                    <p id="userAbout" class="profile__info-paragraph"></p>
+                </div>
+            </div>
+            <button id="addBtn" class="profile__add-button"></button>
+        </section>
+        <section class="cards">
+            <div class="card">
+                <img class="card__images" src="./images/kirill-pershin-1088404-unsplash.jpg" alt="фото храма">
+                <div class="card__info">
+                    <h3 class="card__title">Карачаевск</h3>
+                    <button onclick="like(0)" id="likebtn0" class="card__like"></button>
+                </div>
+            </div>  
+            <div class="card">
+                <img class="card__images" src="./images/vid.png" alt="фото гор">
+                <div class="card__info">
+                    <h3 class="card__title">Гора Эльбрус</h3>
+                    <button onclick="like(1)" id="likebtn1" class="card__like"></button>
+                </div>
+            </div>
+            <div class="card">
+                <img class="card__images" src="./images/gorii.png" alt="фото гор">
+                <div class="card__info">
+                    <h3 class="card__title">Домбай</h3>
+                    <button onclick="like(2)" id="likebtn2" class="card__like"></button>
+                </div>
+            </div>
+            <div class="card">
+                <img class="card__images" src="./images/gora.jpg" alt="закат">
+                <div class="card__info">
+                    <h3 class="card__title">Домбай</h3>
+                    <button onclick="like(3)" id="likebtn3" class="card__like"></button>
+                </div>
+            </div>
+            <div class="card">
+                <img class="card__images" src="./images/gorii.png" alt="фото гор">
+                <div class="card__info">
+                    <h3 class="card__title">Гора</h3>
+                    <button onclick="like(4)" id="likebtn4" class="card__like"></button>
+                </div>
+            </div>
+            <div class="card">
+                <img class="card__images" src="./images/kirill-pershin-1088404-unsplash.jpg" alt="фото храма">
+                <div class="card__info">
+                    <h3 class="card__title">Карачаевск</h3>
+                    <button onclick="like(5)" id="likebtn5" type="button" class="card__like"></button>
+                </div>
+            </div>
+        </section>
+        <footer class="footer">
+            <p class="footer__copyrights">© 2022 Mesto Russia</p>
+        </footer>
+        <div id="myPopup" class="popup">
+            <!-- Modal content -->
+            <div class="popup__content">
+                <span class="popup__close"></span>
+                <div>
+                    <h2 class="popup__form-title">Редактировать профиль</h2>
+                </div>
+                <div class="popup__form">
+                    <input onchange="inputOnchange()" id="userName-input" name="userName" value="Жак-Ив Кусто" class="popup__form-input" type="text" minlength="2" maxlength="40">
+                    <input onchange="aboutinputOnchange()" id="userAbout-input" name="userAbout" value="Исследователь океана" class="popup__form-input" type="text" minlength="2" maxlength="40">
+                </div>
+                <div class="popup__footer">
+                    <button id="savebtn" type="button" class="popup__form-btn">Сохранить</button>
+                </div>
+            </div>
+            </div>
+    <script>
+            let userName = "Жак-Ив Кусто"
+            let userAbout = "Исследователь океана"
+            document.getElementById("userAbout").innerHTML = userAbout
+            function aboutinputOnchange() {
+                userAbout = document.getElementById("userAbout-input").value;
+            }
+            document.getElementById("userName").innerHTML = userName 
+            function inputOnchange() {
+                userName = document.getElementById("userName-input").value;
+            }
+            const savebtn = document.getElementById("savebtn");
+            const modal = document.getElementById("myPopup");
+            const btn = document.getElementById("myBtn");
+            const span = document.getElementsByClassName("popup__close")[0];
+            btn.onclick = function() {
+                modal.style.display = "block";
+            }
+            span.onclick = function() {
+                modal.style.display = "none";
+                document.getElementById("userName").innerHTML = userName 
+            }
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                modal.style.display = "none";
+                }
+            }
+            savebtn.onclick = function() {
+                modal.style.display = "none";
+                document.getElementById("userName").innerHTML = userName 
+                document.getElementById("userAbout").innerHTML = userAbout
+            }
+            function like (itemId) {
+                const likeBtn = document.getElementById(`likebtn${itemId}`);
+                if (likeBtn) {
+                    likeBtn.classList.add("card__like-active"); 
+                }
+            }
+    </script>
+</body>
+</html>
