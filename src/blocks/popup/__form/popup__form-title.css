@@ -7,7 +7,7 @@
     margin: 0;
     margin-left: 36px;
     margin-top: 34px;
-    color: #000000
+    color: #000000;
 }
 @media (max-width: 619px)  {
     .popup__form-title {
