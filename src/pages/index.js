@@ -1,3 +1,4 @@
+
 let userName = "Жак-Ив Кусто"
 let userAbout = "Исследователь океана"
 document.getElementById("userAbout").innerHTML = userAbout
@@ -17,7 +18,6 @@ btn.onclick = function() {
 }
 span.onclick = function() {
     modal.style.display = "none";
-    document.getElementById("userName").innerHTML = userName 
 }
 window.onclick = function(event) {
     if (event.target == modal) {
@@ -29,6 +29,20 @@ savebtn.onclick = function() {
     document.getElementById("userName").innerHTML = userName 
     document.getElementById("userAbout").innerHTML = userAbout
 }
+input = document.getElementById("userName-input");
+input.addEventListener("keypress", function(event) {
+    if (event.key === "Enter"){
+    event.preventDefault();
+    document.getElementById("savebtn").click();
+    }
+    })
+input = document.getElementById("userAbout-input");
+input.addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+    event.preventDefault();
+    document.getElementById("savebtn").click();
+    }
+    });
 function like (itemId) {
     const likeBtn = document.getElementById(`likebtn${itemId}`);
     if (likeBtn) {
