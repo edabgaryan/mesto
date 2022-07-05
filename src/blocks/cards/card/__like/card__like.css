@@ -5,6 +5,7 @@
     border: none;
     cursor: pointer;
     background-color: transparent;
+    background-repeat: no-repeat;
     background-image: url(../../../../images/serd.png);
 }
 .card__like:hover {
