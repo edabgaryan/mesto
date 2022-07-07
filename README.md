@@ -17,6 +17,6 @@
 
 ---
 
-[Ссылка на проект](https://edgar0995.github.io/mesto/src/)
+[Ссылка на проект](https://edgar0995.github.io/mesto/)
 
 ---
