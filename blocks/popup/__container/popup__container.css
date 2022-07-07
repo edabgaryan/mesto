@@ -1,4 +1,4 @@
-.popup__content {
+.popup__container {
     position: relative;
     max-width: 430px;
     height: 330px;
@@ -22,7 +22,7 @@
     to {top:0; opacity:1}
 }
 @media (max-width: 619px)  {
-    .popup__content {
+    .popup__container {
         width: 282px;
         height: 322px;
     }
