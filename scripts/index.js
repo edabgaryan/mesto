@@ -1,18 +1,19 @@
-
 let userName = "Жак-Ив Кусто"
 let userAbout = "Исследователь океана"
-document.getElementById("userAbout").innerHTML = userAbout
+document.querySelector(".profile__info-paragraph").innerHTML = userAbout
 function aboutinputOnchange() {
-    userAbout = document.getElementById("userAbout-input").value;
+    userAbout = document.querySelector(".profile__info-paragraph").value;
 }
-document.getElementById("userName").innerHTML = userName 
+document.querySelector(".profile__info-title").innerHTML = userName 
 function inputOnchange() {
-    userName = document.getElementById("userName-input").value;
+    userName = document.querySelector(".profile__info-title").value;
 }
-const savebtn = document.getElementById("savebtn");
-const modal = document.getElementById("myPopup");
-const btn = document.getElementById("myBtn");
-const span = document.getElementsByClassName("popup__close")[0];
+const savebtn = document.querySelector(".popup__form-btn");
+const modal = document.querySelector(".popup");
+const btn = document.querySelector(".profile__edit-button");
+const span = document.querySelector(".popup__close");
+
+
 btn.onclick = function() {
     modal.style.display = "block";
 }
@@ -24,28 +25,23 @@ window.onclick = function(event) {
     modal.style.display = "none";
     }
 }
+
 savebtn.onclick = function() {
     modal.style.display = "none";
-    document.getElementById("userName").innerHTML = userName 
-    document.getElementById("userAbout").innerHTML = userAbout
+    document.querySelector(".profile__info-title").innerHTML = userName 
+    document.querySelector(".profile__info-paragraph").innerHTML = userAbout
 }
-input = document.getElementById("userName-input");
+input = document.querySelector(".popup__form-input");
 input.addEventListener("keypress", function(event) {
     if (event.key === "Enter"){
     event.preventDefault();
-    document.getElementById("savebtn").click();
+    document.querySelector(".popup__form-btn").click();
     }
     })
-input = document.getElementById("userAbout-input");
+input = document.querySelector(".popup__form-input");
 input.addEventListener("keypress", function(event) {
     if (event.key === "Enter") {
     event.preventDefault();
-    document.getElementById("savebtn").click();
+    document.querySelector(".popup__form-btn").click();
     }
     });
-function like (itemId) {
-    const likeBtn = document.getElementById(`likebtn${itemId}`);
-    if (likeBtn) {
-        likeBtn.classList.add("card__like_active"); 
-    }
-}
