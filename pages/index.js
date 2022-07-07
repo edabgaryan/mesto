@@ -46,6 +46,6 @@ input.addEventListener("keypress", function(event) {
 function like (itemId) {
     const likeBtn = document.getElementById(`likebtn${itemId}`);
     if (likeBtn) {
-        likeBtn.classList.add("card__like-active"); 
+        likeBtn.classList.add("card__like_active"); 
     }
 }
