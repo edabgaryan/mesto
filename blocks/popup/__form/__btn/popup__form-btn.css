@@ -7,13 +7,12 @@
     font-size: 18px;
     font-weight: 400;
     line-height: 21.78px;
-    margin-bottom: 36px;
-    margin-top: 48px;
+    margin: 48px auto;
     min-height: 50px;
     outline: none;
     transition: .2s;
     cursor: pointer;
-    width: 100%;
+    width: 88%;
 }
 .popup__form-btn:hover {
     opacity: .6;
