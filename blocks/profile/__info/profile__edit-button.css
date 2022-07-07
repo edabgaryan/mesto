@@ -1,4 +1,4 @@
-.profile__info-title-btn {
+.profile__edit-button {
     background-image: url(../../../images/Vec3tor.svg);
     background-color:transparent;
     background-position: 50%;
@@ -12,6 +12,6 @@
     transition: all .1s linear;
     cursor: pointer;
 }
-.profile__info-title-btn:hover {
+.profile__edit-button:hover {
     opacity:.6;
 }
