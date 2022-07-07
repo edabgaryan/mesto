@@ -79,10 +79,10 @@
             <div class="popup__container">
                 <button type="button" class="popup__close"></button>
                 <h2 class="popup__title">Редактировать профиль</h2>
-                <div class="popup__form">
-                    <input onchange="inputOnchange()" id="userName-input" name="userName" value="Жак-Ив Кусто" class="popup__form-input" type="text" minlength="2" maxlength="40">
-                    <input onchange="aboutinputOnchange()" id="userAbout-input" name="userAbout" value="Исследователь океана" class="popup__form-input" type="text" minlength="2" maxlength="40">
-                </div>
+                <form class="popup__form" name="PopupForm">
+                    <input id="userName-input" name="userName" class="popup__form-input" type="text" minlength="2" maxlength="40">
+                    <input id="userAbout-input" name="userAbout" class="popup__form-input" type="text" minlength="2" maxlength="40">
+                </form>
                 <div class="popup__footer">
                     <button id="savebtn" type="button" class="popup__form-btn">Сохранить</button>
                 </div>
