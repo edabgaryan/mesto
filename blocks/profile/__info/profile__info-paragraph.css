@@ -1,6 +1,7 @@
 .profile__info-paragraph {
     margin: 0;
     font-family: 'Inter', Arial, sans-serif;
+    max-width: 358px;
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
@@ -12,6 +13,7 @@
 }
 @media (max-width: 619px)  {
     .profile__info-paragraph {
+        max-width: 238px;
         font-weight: 400;
         font-size: 14px;
         line-height: 17px;
