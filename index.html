@@ -18,13 +18,13 @@
                 <img class="profile__ahutor" src="./images/ahutor-logo.jpg" alt="Аватарка">
                 <div class="profile__info">
                     <div class="profile__info-wrapper">
-                        <h1 id="userName" class="profile__info-title"></h1>
-                        <button type="button" id="myBtn" class="profile__edit-button"></button>
+                        <h1 class="profile__info-title">Жак-Ив Кусто</h1>
+                        <button type="button" aria-label="Edit Info" class="profile__edit-button"></button>
                     </div>
-                    <p id="userAbout" class="profile__info-paragraph"></p>
+                    <p class="profile__info-paragraph" maxlength="40">Исследователь океана</p>
                 </div>
             </div>
-            <button type="button" id="addBtn" class="profile__add-button"></button>
+            <button type="button" aria-label="Add place" class="profile__add-button"></button>
         </section>
         <section class="cards">
             <div class="card">
@@ -77,11 +77,11 @@
         <div id="myPopup" class="popup">
             <!-- Modal content -->
             <div class="popup__container">
-                <button type="button" class="popup__close"></button>
+                <button aria-label="Close" type="button" class="popup__close"></button>
                 <h2 class="popup__title">Редактировать профиль</h2>
-                <form name="PopupForm" class="popup__form">
-                    <input  id="userName-input" name="userName" class="popup__form-input" type="text" minlength="2" maxlength="40">
-                    <input  id="userAbout-input" name="userAbout" class="popup__form-input" type="text" minlength="2" maxlength="40">
+                <form name="info-user" method="get" class="popup__form">
+                    <input type="text" name="fullname" class="popup__form-input popup__input_form_name" value="">
+                    <input  name="userAbout" class="popup__form-input popup__input_form_profession" type="text" value="">
                     <button id="savebtn" type="submit" class="popup__form-btn">Сохранить</button>
                 </form>
             </div>
