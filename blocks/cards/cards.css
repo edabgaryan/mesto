@@ -6,8 +6,9 @@
     grid-auto-rows: 361px;
     grid-gap: 20px;
 }
-@media  (min-width: 420px) and (max-width: 619px)   {
+@media  (min-width: 320px) and (max-width: 619px)   {
     .cards {
+        margin-top: 36px;
         grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
     }
 }
