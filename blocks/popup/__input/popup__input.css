@@ -10,7 +10,7 @@
     margin-bottom: 30px;
 }
 @media (max-width: 619px)  {
-    .popup__form-input {
+    .popup__input {
         width: 238px;
     }
 }
