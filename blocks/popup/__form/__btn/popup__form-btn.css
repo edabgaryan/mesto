@@ -17,3 +17,9 @@
 .popup__form-btn:hover {
     opacity: .6;
 }
+@media (max-width: 619px) {
+    .popup__form-btn {
+        margin-top: 45px;
+        min-height: 46px;
+    }
+}
