@@ -23,8 +23,6 @@
 }
 @media (min-width: 620px) and (max-width: 930px) {
     .profile__info-paragraph {
-        font-weight: 400;
-        font-size: 11px;
-        line-height: 14px;
+        margin-top: 16px;
     }
 }
