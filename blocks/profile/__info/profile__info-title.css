@@ -17,7 +17,7 @@
         font-weight: 500;
         font-size: 27px;
         line-height: 33px;
-        margin: 0 10px 0 5px;
+        margin: 0;
     }
 }
 @media (min-width: 620px) and (max-width: 930px) {
