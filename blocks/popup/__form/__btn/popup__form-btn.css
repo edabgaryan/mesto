@@ -12,14 +12,17 @@
     outline: none;
     transition: .2s;
     cursor: pointer;
-    width: 88%;
+    width: 358px;
 }
 .popup__form-btn:hover {
     opacity: .6;
 }
 @media (max-width: 619px) {
     .popup__form-btn {
+        width: 238px;
+        height: 46px;
         margin-top: 45px;
-        min-height: 46px;
+        font-size: 14px;
+        line-height: 17px;
     }
 }
