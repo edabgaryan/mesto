@@ -1,5 +1,6 @@
 .popup__input {
     border: 0;
+    height: 27px;
     font-size: 14px;
     border-bottom: 1px solid #000000;
     font-family: 'Inter', Arial, sans-serif;
