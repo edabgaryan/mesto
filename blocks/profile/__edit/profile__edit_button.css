@@ -1,4 +1,4 @@
-.profile__edit-button {
+.profile__edit_button {
     background-image: url(../../../images/Vec3tor.svg);
     background-color:transparent;
     background-position: 50%;
@@ -12,11 +12,11 @@
     transition: all .1s linear;
     cursor: pointer;
 }
-.profile__edit-button:hover {
+.profile__edit_button:hover {
     opacity:.6;
 }
 @media  (max-width: 620px) {
-    .profile__edit-button {
+    .profile__edit_button {
         margin-left: 10px;
         min-width: 18px;
         min-height: 18px;
