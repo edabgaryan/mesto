@@ -1,4 +1,4 @@
-.profile__info-button {
+.profile__add-button {
     background-image: url(../../../images/Vector.svg);
     background-color: transparent;
     background-position: 50%;
@@ -12,11 +12,11 @@
     width: 150px;
     cursor: pointer;
 }
-.profile__info-button:hover {
+.profile__add-button:hover {
     opacity:.6;
 } 
 @media (max-width: 619px)  {
-    .profile__info-button {
+    .profile__add-button {
         margin-top: 36px;
         width: 282px;
         height: 50px;
