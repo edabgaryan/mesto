@@ -69,13 +69,13 @@ function openProfilePopup () {
     professionForm.value = professionProfile.textContent;
     openPopup(popupFormProfile);
 }
-function formSubmitName (evt) {
+function submitFormName (evt) {
     evt.preventDefault();
     fullNameProfile.textContent = fullNameForm.value;
     professionProfile.textContent = professionForm.value;
     popupClose(popupFormProfile);
 }
-function formSubmitPlace (evt) {
+function submitFormPlace (evt) {
     evt.preventDefault();
     renderCard({name: namePlaceFormPopup.value, link: placeSourceFormPopup.value });
     popupClose(popupFormAdd);
@@ -90,8 +90,8 @@ buttonClosePopupFormProfile.addEventListener('click', () => popupClose(popupForm
 buttonClosePopupFormNewPlace.addEventListener('click', () => popupClose(popupFormAdd));
 buttonClosePopupOpenPicture.addEventListener('click', () => popupClose(popupOpenPicture));
 
-popupFormName.addEventListener('submit', formSubmitName);
-popupFormPlace.addEventListener('submit', formSubmitPlace);
+popupFormName.addEventListener('submit', submitFormName);
+popupFormPlace.addEventListener('submit', submitFormPlace);
 
 
 function createCard({name, link}) {
@@ -115,7 +115,7 @@ function createCard({name, link}) {
         popupPicture.alt = name;
         popupPicture.src = link;
         popupFigcaption.textContent = name;
-        popupOpane(popupOpenPicture);
+        openPopup(popupOpenPicture);
     });
     return elementCopy;
 };
