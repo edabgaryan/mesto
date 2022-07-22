@@ -2,7 +2,7 @@ const selectors = {
     //Popup
     popupFormProfile: '.popup__form_profile',
     popupFormAdd: '.popup__form_add',
-    popupOpenPicture: '.popup__open-picture',
+    popupOpenPicture: '.popup__open_picture',
     closeButtonPopup: '.popup__close',
     popupFormName: '.popup__form-name',
     popupFormPlace: '.popup__form-place',
