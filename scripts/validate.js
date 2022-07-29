@@ -2,12 +2,12 @@ const forms = [
     {
     formClass: 'popup__form[name="edit-form"]',
     buttonClass: 'popup__form-btn',
-    buttonInvalidClass: 'popup__button-submit_invalid',
+    buttonInvalidClass: 'popup__button_submit_invalid',
     }, 
     {
     formClass: 'popup__form[name="form-add-card"]',
     buttonClass: 'popup__form-btn',
-    buttonInvalidClass: 'popup__button-submit_invalid',
+    buttonInvalidClass: 'popup__button_submit_invalid',
     }];
     function enableValidation(config) {
         const form = document.querySelector('.' + config.formClass);
