@@ -50,9 +50,11 @@
                 <button aria-label="Close" type="button" class="popup__close"></button>
                 <div class="popup__content">
                     <h2 class="popup__title">Редактировать профиль</h2>
-                    <form name="info-user" class="popup__form popup__form-name">
-                        <input type="text" name="fullname" class="popup__input popup__input_form_name">
-                        <input  name="userAbout" class="popup__input popup__input_form_profession" type="text">
+                    <form name="edit-form" class="popup__form popup__form-name">
+                        <input type="text" name="fullname" class="popup__input popup__input_form_name" required minlength="2" maxlength="40">
+                        <span class="popup__error"></span>
+                        <input  name="userAbout" class="popup__input popup__input_form_profession" type="text" required minlength="2" maxlength="200">
+                        <span class="popup__error"></span>
                         <button id="savebtn" type="submit" class="popup__form-btn">Сохранить</button>
                     </form>
                 </div>
@@ -64,12 +66,14 @@
                 <button class="popup__close" type="reset"></button>
                 <div class="popup__content">
                     <h2 class="popup__title">Новое место</h2>
-                    <form class="popup__form popup__form-place" action="form-card" name="form-card">
-                        <input class="popup__input popup__text-title popup__input_form_name-place" type="text" id="title" name="title" placeholder="Название публикаций" />
-                        <input class="popup__input popup__text-link popup__input_form_source-on-place" type="url" id="link" name="link" required
-                            placeholder="Ссылка на картинку" />
-                        <button class="popup__form-btn" type="submit">Создать</button>
+                    <form class="popup__form popup__form-place" action="form-card" name="form-add-card" novalidate> 
+                            <input class="popup__input popup__text-title popup__input_form_name-place" type="text" id="title-input" name="title" required minlength="2" maxlength="40" placeholder="Название публикаций" />
+                            <span class="popup__error"></span>
+                            <input class="popup__input popup__text-link popup__input_form_source-on-place" type="url" id="url-input" required name="link" placeholder="Ссылка на картинку" />
+                            <span class="popup__error"></span>
+                            <button class="popup__form-btn popup__button-submit_invalid" type="submit">Создать</button>
                     </form>
+                    
                 </div>
             </div>
         </div>
@@ -80,8 +84,9 @@
                 <img class="popup__picture">
                 <figcaption class="popup__figcaption"></figcaption>
             </figure>
-        </div>      
+        </div>
     <script defer src="./scripts/card.js"></script>   
     <script defer src="./scripts/index.js"></script>
+    <script defer src="./scripts/validate.js" ></script>
 </body>
 </html>
