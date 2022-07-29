@@ -9,31 +9,31 @@ const forms = [
     buttonClass: 'popup__form-btn',
     buttonInvalidClass: 'popup__button-invalid',
     }];
-    function enableValidation(config) {
-        const form = document.querySelector('.' + config.formClass);
-        form.addEventListener('input', (e)=> handleFormInput(e, config));
+function setSubmitButtonState(form, config) {
+    const button = form.querySelector('.' + config.buttonClass);
+    const isValid = form.checkValidity();
+    if (isValid) {
+        button.removeAttribute('disabled');
+        button.classList.remove(config.buttonInvalidClass);
+    } else {
+        button.setAttribute('disabled', true); 
+        button.classList.add(config.buttonInvalidClass);
     }
-    function handleFormInput(e, config) {
-        const input = e.target;
-        const form = e.currentTarget;
-        showFieldError(input);
-        setSubmitButtonState(form, config);
-    };
-    function showFieldError(input) {
-        const span = input.nextElementSibling;
-        span.textContent = input.validationMessage;
-    }
-    function setSubmitButtonState(form, config) {
-        const button = form.querySelector('.' + config.buttonClass);
-        const isValid = form.checkValidity();
-        if (isValid) {
-            button.removeAttribute('disabled');
-            button.classList.remove(config.buttonInvalidClass);
-        } else {
-            button.setAttribute('disabled', true); 
-            button.classList.add(config.buttonInvalidClass);
-        }
-    };
-    forms.forEach(form => {
-        enableValidation(form);
-    });
+};
+function showFieldError(input) {
+    const span = input.nextElementSibling;
+    span.textContent = input.validationMessage;
+}
+function handleFormInput(e, config) {
+    const input = e.target;
+    const form = e.currentTarget;
+    showFieldError(input);
+    setSubmitButtonState(form, config);
+};
+function enableValidation(config) {
+    const form = document.querySelector('.' + config.formClass);
+    form.addEventListener('input', (e)=> handleFormInput(e, config));
+}
+forms.forEach(form => {
+    enableValidation(form);
+});
