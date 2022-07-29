@@ -37,5 +37,3 @@ const forms = [
     forms.forEach(form => {
         enableValidation(form);
     });
-    
-    
