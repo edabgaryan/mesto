@@ -7,8 +7,8 @@
     width: 358px;
     margin: 0 auto;
 }
-.popup__input:first-of-type {
-    margin-bottom: 30px;
+.popup__input:invalid {
+    border-bottom-color: red;
 }
 @media (max-width: 619px)  {
     .popup__input {
