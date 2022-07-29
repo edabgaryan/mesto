@@ -9,6 +9,7 @@ const forms = [
     buttonClass: 'popup__form-btn',
     buttonInvalidClass: 'popup__button-invalid',
     }];
+    
 function setSubmitButtonState(form, config) {
     const button = form.querySelector('.' + config.buttonClass);
     const isValid = form.checkValidity();
