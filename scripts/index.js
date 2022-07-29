@@ -58,9 +58,18 @@ const elementsCard = document.querySelector(selectors.elementsCard);
 //Function Открытия Попапа
 function openPopup (popup) {
     popup.classList.add('popup_opened');
+    //Function Закрытия по escape
+    function closePopupByEscClick(e) {
+        if (e.key === 'Escape') {
+            closePopup(popup);
+            window.removeEventListener('keydown', closePopupByEscClick);
+        }
+    }
+    window.addEventListener('keydown', closePopupByEscClick);
+    popup.addEventListener('click', closePopupByOverlayClick);
 };
 //Function Закрытия Попапа
-function popupClose (popup) {
+function closePopup (popup) {
     popup.classList.remove('popup_opened');
 }
 //Меняем текст имени автора
@@ -73,22 +82,29 @@ function submitFormName (evt) {
     evt.preventDefault();
     fullNameProfile.textContent = fullNameForm.value;
     professionProfile.textContent = professionForm.value;
-    popupClose(popupFormProfile);
+    closePopup(popupFormProfile);
 }
 function submitFormPlace (evt) {
     evt.preventDefault();
     renderCard({name: namePlaceFormPopup.value, link: placeSourceFormPopup.value });
-    popupClose(popupFormAdd);
+    closePopup(popupFormAdd);
 
     namePlaceFormPopup.value = '';
     placeSourceFormPopup.value = '';
 };
+// Function закрытия по клику вне Popupa
+function closePopupByOverlayClick(e) {
+    const popup = e.currentTarget;
+    if (e.currentTarget !== e.target) return;
+    closePopup(popup);
+    popup.removeEventListener('click', closePopupByOverlayClick);
+}
 //
 infoButtonProfile.addEventListener('click', () => openProfilePopup());
 addButtonProfile.addEventListener('click',() => openPopup(popupFormAdd));
-buttonClosePopupFormProfile.addEventListener('click', () => popupClose(popupFormProfile));
-buttonClosePopupFormNewPlace.addEventListener('click', () => popupClose(popupFormAdd));
-buttonClosePopupOpenPicture.addEventListener('click', () => popupClose(popupOpenPicture));
+buttonClosePopupFormProfile.addEventListener('click', () => closePopup(popupFormProfile));
+buttonClosePopupFormNewPlace.addEventListener('click', () => closePopup(popupFormAdd));
+buttonClosePopupOpenPicture.addEventListener('click', () => closePopup(popupOpenPicture));
 
 popupFormName.addEventListener('submit', submitFormName);
 popupFormPlace.addEventListener('submit', submitFormPlace);
