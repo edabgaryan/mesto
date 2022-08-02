@@ -1,0 +1,5 @@
+.popup__form-btn_hover:hover {
+  cursor: pointer;
+  opacity: .8;
+  transition: opacity .5s linear;
+}
