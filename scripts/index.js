@@ -100,6 +100,17 @@ function closePopupByOverlayClick(e) {
     popup.removeEventListener('click', closePopupByOverlayClick);
 }
 //
+//Подключил validate
+infoButtonProfile.addEventListener('click', () => {
+    openProfilePopup();
+    startedValidityForm(popupFormProfile);
+});
+
+addButtonProfile.addEventListener('click',() => {
+    openPopup(popupFormAdd);
+    startedValidityForm(popupFormAdd);
+});
+//
 infoButtonProfile.addEventListener('click', () => openProfilePopup());
 addButtonProfile.addEventListener('click',() => openPopup(popupFormAdd));
 buttonClosePopupFormProfile.addEventListener('click', () => closePopup(popupFormProfile));
