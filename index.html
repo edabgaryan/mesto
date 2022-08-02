@@ -50,12 +50,12 @@
                 <button aria-label="Close" type="button" class="popup__close"></button>
                 <div class="popup__content">
                     <h2 class="popup__title">Редактировать профиль</h2>
-                    <form name="edit-form" class="popup__form popup__form-name">
-                        <input type="text" name="fullname" class="popup__input popup__input_form_name" required minlength="2" maxlength="40">
-                        <span class="popup__error"></span>
-                        <input  name="userAbout" class="popup__input popup__input_form_profession" type="text" required minlength="2" maxlength="200">
-                        <span class="popup__error"></span>
-                        <button id="savebtn" type="submit" class="popup__form-btn">Сохранить</button>
+                    <form class="popup__form popup__form-name" name="info-user" method="get" novalidate>
+                        <input class="popup__input popup__input_form_name" type="text" name="popup__input-text_fullname" value="" minlength="2" maxlength="40" placeholder="Имя" required>
+                        <span class="popup__error popup__input-text_fullname-error"></span>
+                        <input class="popup__input popup__input_form_profession" type="text" name="popup__input-text_profession" value="" minlength="2" maxlength="200" placeholder="Профессия" required>
+                        <span class="popup__error popup__input-text_profession-error"></span>
+                        <input class="popup__form-btn" aria-label="Save" type="submit" value="Сохранить">
                     </form>
                 </div>
             </div>
@@ -66,14 +66,13 @@
                 <button class="popup__close" type="reset"></button>
                 <div class="popup__content">
                     <h2 class="popup__title">Новое место</h2>
-                    <form class="popup__form popup__form-place" action="form-card" name="form-add-card" novalidate> 
-                            <input class="popup__input popup__text-title popup__input_form_name-place" type="text" id="title-input" name="title" required minlength="2" maxlength="40" placeholder="Название публикаций" />
-                            <span class="popup__error"></span>
-                            <input class="popup__input popup__text-link popup__input_form_source-on-place" type="url" id="url-input" required name="link" placeholder="Ссылка на картинку" />
-                            <span class="popup__error"></span>
-                            <button class="popup__form-btn popup__button-invalid" type="submit">Создать</button>
-                    </form>
-                    
+                    <form class="popup__form popup__form-place" name="info-place" method="get" novalidate> 
+                            <input class="popup__input  popup__input_form_name-place" type="text" name="popup__input-text_name-place" value="" placeholder="Название" minlength="2" maxlength="30" required/>
+                            <span class="popup__error popup__input-text_name-place-error"></span>
+                            <input class="popup__input popup__input_form_source-on-place" type="url" name="popup__input-text_source-on-place" value="" placeholder="Ссылка на картинку" required/>
+                            <span class="popup__error popup__input-text_source-on-place-error" ></span>
+                            <input class="popup__form-btn" aria-label="Create" type="submit" value="Создать">
+                    </form> 
                 </div>
             </div>
         </div>
