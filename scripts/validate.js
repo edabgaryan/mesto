@@ -17,8 +17,8 @@ function startedValidityForm(popup) {
     if (inputElement.validity.valid) {
         inputElement.classList.remove(validationConfig.inputErrorClass);
         inputElement.classList.add(validationConfig.inputValidity);
-        popup.querySelector(`.${inputElement.name}-error`).textContent = '';
-    } else if (popup.querySelector(`.${inputElement.name}-error`).textContent.length !== 0 && !inputElement.validity.valid) {
+        popup.querySelector(`.${inputElement.name}_error`).textContent = '';
+    } else if (popup.querySelector(`.${inputElement.name}_error`).textContent.length !== 0 && !inputElement.validity.valid) {
         inputElement.classList.add(validationConfig.inputErrorClass);
         inputElement.classList.remove(validationConfig.inputValidity);
         } else {
@@ -80,7 +80,7 @@ function checkInputValidity(formElement, inputElement) {
 };
 
 function showInputError (formElement, inputElement, errorMessage) {
-    const errorElement = formElement.querySelector(`.${inputElement.name}-error`);
+    const errorElement = formElement.querySelector(`.${inputElement.name}_error`);
     inputElement.classList.add(validationConfig.inputErrorClass);
     inputElement.classList.remove(validationConfig.inputValidity);
     errorElement.textContent = errorMessage;
@@ -88,7 +88,7 @@ function showInputError (formElement, inputElement, errorMessage) {
 };
 
 function hideInputError (formElement, inputElement) {
-    const errorElement = formElement.querySelector(`.${inputElement.name}-error`);
+    const errorElement = formElement.querySelector(`.${inputElement.name}_error`);
     inputElement.classList.remove(validationConfig.inputErrorClass);
     inputElement.classList.add(validationConfig.inputValidity);
     errorElement.classList.remove(validationConfig.errorVisibility);
