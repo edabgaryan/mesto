@@ -58,17 +58,21 @@ const elementsCard = document.querySelector(selectors.elementsCard);
 //Function Открытия Попапа
 function openPopup (popup) {
     popup.classList.add('popup_opened');
-    //Function Закрытия по escape
-    function closePopupByEscClick(e) {
-        if (e.key === 'Escape') {
-            closePopup(popup);
-            window.removeEventListener('keydown', closePopupByEscClick);
-        }
+    document.addEventListener('keydown', keyHandler);
+};
+//Function Закрытия по escape
+function keyHandler(evt) {
+    if (evt.key === 'Escape') {
+        const openedPopup = document.querySelector('.popup_opened');
+        closePopup(openedPopup);
     }
-    window.addEventListener('keydown', closePopupByEscClick);
-    popup.addEventListener('click', closePopupByOverlayClick);
 };
 //Function Закрытия Попапа
+function closePopup (popup) {
+    popup.classList.remove('popup_opened');
+    document.removeEventListener('keydown', keyHandler);
+}
+//Меняем текст имени автора
 function closePopup (popup) {
     popup.classList.remove('popup_opened');
 }
