@@ -73,10 +73,6 @@ function closePopup (popup) {
     document.removeEventListener('keydown', keyHandler);
 }
 //Меняем текст имени автора
-function closePopup (popup) {
-    popup.classList.remove('popup_opened');
-}
-//Меняем текст имени автора
 function openProfilePopup () {
     fullNameForm.value = fullNameProfile.textContent;
     professionForm.value = professionProfile.textContent;
@@ -88,39 +84,39 @@ function submitFormName (evt) {
     professionProfile.textContent = professionForm.value;
     closePopup(popupFormProfile);
 }
-function submitFormPlace (evt) {
-    evt.preventDefault();
-    renderCard({name: namePlaceFormPopup.value, link: placeSourceFormPopup.value });
+//Fucntiom конпоки сохр
+function submitFormPlace () {
+    renderCard({name: namePlaceFormPopup.value, link: placeSourceFormPopup.value});
     closePopup(popupFormAdd);
-
-    namePlaceFormPopup.value = '';
-    placeSourceFormPopup.value = '';
+    popupFormPlace.reset();
 };
 // Function закрытия по клику вне Popupa
-function closePopupByOverlayClick(e) {
-    const popup = e.currentTarget;
-    if (e.currentTarget !== e.target) return;
-    closePopup(popup);
-    popup.removeEventListener('click', closePopupByOverlayClick);
+function closePopupByOverlayClick(evt) {
+    if (evt.target === evt.currentTarget) {
+    closePopup(evt.target);
+    };
 }
-//
 //Подключил validate
 infoButtonProfile.addEventListener('click', () => {
     openProfilePopup();
-    startedValidityForm(popupFormProfile);
+    startedValidationForm(popupFormProfile);
 });
 
 addButtonProfile.addEventListener('click',() => {
     openPopup(popupFormAdd);
-    startedValidityForm(popupFormAdd);
+    startedValidationForm(popupFormAdd);
 });
+//
 //
 infoButtonProfile.addEventListener('click', () => openProfilePopup());
 addButtonProfile.addEventListener('click',() => openPopup(popupFormAdd));
 buttonClosePopupFormProfile.addEventListener('click', () => closePopup(popupFormProfile));
 buttonClosePopupFormNewPlace.addEventListener('click', () => closePopup(popupFormAdd));
-buttonClosePopupOpenPicture.addEventListener('click', () => closePopup(popupOpenPicture));
-
+//
+popupFormProfile.addEventListener('click', closePopupByOverlayClick);
+popupFormAdd.addEventListener('click', closePopupByOverlayClick);
+popupOpenPicture.addEventListener('click', closePopupByOverlayClick);
+//
 popupFormName.addEventListener('submit', submitFormName);
 popupFormPlace.addEventListener('submit', submitFormPlace);
 
