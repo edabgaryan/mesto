@@ -103,7 +103,6 @@ popupFull.forEach((popup) => {
     }
   });
 });
-
 // закрытие попапов кнопкой ecs
 function closePopupEsc(evt) {
   if (evt.key === "Escape") {
@@ -111,7 +110,6 @@ function closePopupEsc(evt) {
     closePopup(popupOpened);
   }
 }
-
 //Подключил validate
 infoButtonProfile.addEventListener("click", () => {
   openProfilePopup();
@@ -122,17 +120,6 @@ addButtonProfile.addEventListener("click", () => {
   openPopup(popupFormAdd);
   startFormValidaton(popupFormAdd);
 });
-//
-//
-infoButtonProfile.addEventListener("click", () => openProfilePopup());
-addButtonProfile.addEventListener("click", () => openPopup(popupFormAdd));
-//
-buttonClosePopupFormProfile.addEventListener("click", () =>
-  closePopup(popupFormProfile)
-);
-buttonClosePopupFormNewPlace.addEventListener("click", () =>
-  closePopup(popupFormAdd)
-);
 //
 popupFormName.addEventListener("submit", submitFormName);
 popupFormPlace.addEventListener("submit", submitFormPlace);
