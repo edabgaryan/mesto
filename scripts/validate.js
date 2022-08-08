@@ -8,7 +8,7 @@ const validationConfig = {
   inputValidity: "popup__input_border-bottom_black",
   errorVisibility: "popup__input-text_error-visible",
 };
-function startFormValidaton(popup) {
+function clearInputErrors(popup) {
   const inputList = Array.from(
     popup.querySelectorAll(validationConfig.inputSelector)
   );
@@ -19,13 +19,10 @@ function startFormValidaton(popup) {
 
   inputList.forEach((inputElement) => {
     if (inputElement.validity.valid) {
-      inputElement.classList.remove(validationConfig.inputErrorClass);
-      inputElement.classList.add(validationConfig.inputValidity);
       popup.querySelector(`.${inputElement.name}_error`).textContent = "";
-    } else {
+    }
       inputElement.classList.remove(validationConfig.inputErrorClass);
       inputElement.classList.add(validationConfig.inputValidity);
-    }
   });
 }
 function enableValidation(validationConfig) {
