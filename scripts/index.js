@@ -44,9 +44,6 @@ const buttonClosePopupFormProfile = popupFormProfile.querySelector(
 const buttonClosePopupFormNewPlace = popupFormAdd.querySelector(
   selectors.closeButtonPopup
 ); //
-const buttonClosePopupOpenPicture = popupOpenPicture.querySelector(
-  selectors.closeButtonPopup
-); //
 
 const namePlaceFormPopup = document.querySelector(selectors.namePlaceFormPopup);
 const placeSourceFormPopup = document.querySelector(
@@ -113,12 +110,12 @@ function closePopupEsc(evt) {
 //Подключил validate
 infoButtonProfile.addEventListener("click", () => {
   openProfilePopup();
-  startFormValidaton(popupFormProfile);
+  clearInputErrors(popupFormProfile);
 });
 
 addButtonProfile.addEventListener("click", () => {
   openPopup(popupFormAdd);
-  startFormValidaton(popupFormAdd);
+  clearInputErrors(popupFormAdd);
 });
 //
 popupFormName.addEventListener("submit", submitFormName);
