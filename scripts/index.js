@@ -1,14 +1,14 @@
 import { Card } from './Card.js';
-import { initialCards } from './places.js';
-import { FormValidator, validationConfig } from './FormValidator.js';
+import { initialcards } from './places.js';
+import { FormValidator} from './FormValidator.js';
 
-export const selectors = {
+const selectors = {
   //Popup
   popupFormProfile: ".popup_form_profile",
   popupFormAdd: ".popup_form_add",
   popupOpenPicture: ".popup_open_picture",
   closeButtonPopup: ".popup__close",
-  popupFormName: ".popup__form-name",
+  popupFormName: ".popup__form-name", 
   popupFormPlace: ".popup__form-place",
   fullNameForm: ".popup__input_form_name",
   professionForm: ".popup__input_form_profession",
@@ -34,13 +34,13 @@ export const selectors = {
 //Popup
 const popupFormProfile = document.querySelector(selectors.popupFormProfile); // 1-ый ПОПАП
 const popupFormAdd = document.querySelector(selectors.popupFormAdd); // 2-ой ПОПАП
-export const popupOpenPicture = document.querySelector(selectors.popupOpenPicture); // 3-ый ПОПАП
+const popupOpenPicture = document.querySelector(selectors.popupOpenPicture); // 3-ый ПОПАП
 
 const fullNameForm = document.querySelector(selectors.fullNameForm); //
 const professionForm = document.querySelector(selectors.professionForm); //
 const popupFormName = document.querySelector(selectors.popupFormName); //
 const popupFormPlace = document.querySelector(selectors.popupFormPlace);
-
+const elementsCard = document.querySelector(selectors.elementsCard);//
 
 const buttonClosePopupFormProfile = popupFormProfile.querySelector(selectors.closeButtonPopup); //
 const buttonClosePopupFormNewPlace = popupFormAdd.querySelector(selectors.closeButtonPopup); //
@@ -54,10 +54,8 @@ const professionProfile = document.querySelector(selectors.professionProfile);
 const infoButtonProfile = document.querySelector(selectors.infoButtonProfile); //
 const addButtonProfile = document.querySelector(selectors.addButtonProfile);
 
-
-
 //Function Открытия Попапа
-export function openPopup(popup) {
+function openPopup(popup) {
   popup.classList.add("popup_opened");
   document.addEventListener("keydown", closePopupEsc);
 }
@@ -86,7 +84,12 @@ function closedPopupByClickOnOverlay(evt) {
     closePopup(evt.target);
   };
 };
-
+function openImagePopup(name, link) {
+  document.querySelector(selectors.picturePopup).src = link;
+  document.querySelector(selectors.picturePopup).alt = name;
+  document.querySelector(selectors.figcaptionPopup).textContent = name;
+  openPopup(popupContainerOpenPicture); 
+};
 
 function submitAPopupProfileForm(evt) {
   fullNameProfile.textContent = fullNameForm.value;
@@ -94,63 +97,25 @@ function submitAPopupProfileForm(evt) {
   closePopup(popupFormProfile);
   evt.preventDefault();
 };
+//создание карточки
+function createCard(obj) {
+  const card = new Card(obj, selectors.template, openImagePopup, selectors);
+  return card.generateCard();
+};
 
 function submitAPopupFormNewPlace(evt) {
-  const card = new Card({name: namePlaceFormPopup.value, link: placeSourceFormPopup.value}, selectors.template);
-  const cardElement = card.generateCard();
-  document.querySelector(selectors.elementsCard).prepend(cardElement);
-  
-  startedValidityFormNewPlace(popupFormAdd);
+  elementsCard.prepend(createCard({name: namePlaceFormPopup.value, link: placeSourceFormPopup.value}));
   closePopup(popupFormAdd);
   evt.preventDefault();
   popupFormPlace.reset();
 };
-
-function startedValidityFormNewPlace(popup) {
-  const buttonElement = popup.querySelector(validationConfig.submitButtonSelector);
-  buttonElement.classList.add(validationConfig.inactiveButtonClass);
-  buttonElement.setAttribute('disabled', true);
-  buttonElement.classList.remove(validationConfig.buttonWithFormValidity);
-};
-
-function startedValidityFormProfile(popup) {
-  const buttonElement = popup.querySelector(validationConfig.submitButtonSelector);
-  buttonElement.classList.remove(validationConfig.inactiveButtonClass);
-  buttonElement.removeAttribute('disabled');
-  buttonElement.classList.add(validationConfig.buttonWithFormValidity);
-  startedValidationInput(popup);
-};
-
-function startedValidationInput(popup) {
-  const inputList = Array.from(popup.querySelectorAll(validationConfig.inputSelector));
-
-  inputList.forEach((inputElement) => {
-    if (inputElement.validity.valid) {
-      inputElement.classList.remove(validationConfig.inputErrorClass);
-      inputElement.classList.add(validationConfig.inputValidity);
-      popup.querySelector(`.${inputElement.name}_error`);
-    } else if (popup.querySelector(`.${inputElement.name}_error`)) {
-      inputElement.classList.add(validationConfig.inputErrorClass);
-      inputElement.classList.remove(validationConfig.inputValidity);
-    } else {
-      inputElement.classList.remove(validationConfig.inputErrorClass);
-      inputElement.classList.add(validationConfig.inputValidity);
-    }
-  });
-}
-
-initialCards.forEach((item) => {
-  const card = new Card(item, selectors.template);
-  const cardElement = card.generateCard();
-
-  document.querySelector(selectors.elementsCard).prepend(cardElement);
+initialcards.forEach((item) => {
+  elementsCard.prepend(createCard(item));
 });
-
-const formList = Array.from(document.querySelectorAll(validationConfig.formSelector));
-formList.forEach((formElement) => {
-  const liveValidation = new FormValidator(validationConfig, formElement);
-  liveValidation.enableValidation();
-});
+const profileValidation = new FormValidator(popupFormName);
+const newCardValidation = new FormValidator(popupFormPlace);
+profileValidation.enableValidation();
+newCardValidation.enableValidation();
 
 popupFormProfile.addEventListener('click', closedPopupByClickOnOverlay);
 popupFormAdd.addEventListener('click', closedPopupByClickOnOverlay);
@@ -158,12 +123,13 @@ popupOpenPicture.addEventListener('click', closedPopupByClickOnOverlay);
 
 infoButtonProfile.addEventListener('click', () => {
   openProfilePopup();
-  startedValidityFormProfile(popupFormProfile);
+  profileValidation.resetValidation();
 });
 
 addButtonProfile.addEventListener('click',() => {
   openPopup(popupFormAdd);
-  startedValidationInput(popupFormAdd);
+  popupFormPlace.reset();
+  newCardValidation.resetValidation();
 });
 
 buttonClosePopupFormProfile.addEventListener('click', () => closePopup(popupFormProfile));
