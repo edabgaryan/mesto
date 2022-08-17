@@ -42,7 +42,7 @@ export class Card {
     });
 
     this._cardButtonLike.addEventListener('click', () => {
-      this._likeCardClick();
+      this._buttonCardLike();
     });
 
     this._cardImage.addEventListener('click', () => {
@@ -55,7 +55,7 @@ export class Card {
     this._element = null;
   }
 
-  _likeCardClick() {
-    this._buttonCardLike.classList.toggle('card__like_active');
+  _buttonCardLike() {
+    this._cardButtonLike.classList.toggle('card__like_active');
   }
 };
