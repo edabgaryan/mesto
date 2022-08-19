@@ -107,7 +107,6 @@ function submitAPopupFormNewPlace(evt) {
   elementsCard.prepend(createCard({name: namePlaceFormPopup.value, link: placeSourceFormPopup.value}));
   closePopup(popupFormAdd);
   evt.preventDefault();
-  popupFormPlace.reset();
 };
 initialcards.forEach((item) => {
   elementsCard.prepend(createCard(item));
