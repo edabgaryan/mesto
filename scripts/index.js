@@ -1,5 +1,5 @@
 import { Card } from './Card.js';
-import { initialcards } from './Places.js';
+import { initialcards } from './places.js';
 import { FormValidator} from './FormValidator.js';
 
 const selectors = {
