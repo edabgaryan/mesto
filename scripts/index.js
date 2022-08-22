@@ -1,5 +1,5 @@
 import { Card } from './Card.js';
-import { initialcards } from './places.js';
+import { initialCards } from './places.js';
 import { FormValidator} from './FormValidator.js';
 
 const selectors = {
@@ -108,7 +108,7 @@ function submitAPopupFormNewPlace(evt) {
   closePopup(popupFormAdd);
   evt.preventDefault();
 };
-initialcards.forEach((item) => {
+initialCards.forEach((item) => {
   elementsCard.prepend(createCard(item));
 });
 const profileValidation = new FormValidator(popupFormName);
