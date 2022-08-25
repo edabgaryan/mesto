@@ -85,10 +85,10 @@ function closedPopupByClickOnOverlay(evt) {
   };
 };
 function openImagePopup(name, link) {
-  document.querySelector(selectors.picturePopup).src = link;
-  document.querySelector(selectors.picturePopup).alt = name;
-  document.querySelector(selectors.figcaptionPopup).textContent = name;
-  openPopup(popupContainerOpenPicture); 
+  document.querySelector(selectors.popupPicture).src = link;
+  document.querySelector(selectors.popupPicture).alt = name;
+  document.querySelector(selectors.popupFigcaption).textContent = name;
+  openPopup(popupOpenPicture); 
 };
 
 function submitAPopupProfileForm(evt) {
