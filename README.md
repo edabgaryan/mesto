@@ -19,5 +19,5 @@
       шрифт Inter
 ---
 
-[Ссылка на проект](https://edgar0995.github.io/mesto/)
+[Ссылка на проект](https://edgar0995.github.io/mesto/) я еще не умею выкладывать проект сделанный Webpack-ом
 ---
