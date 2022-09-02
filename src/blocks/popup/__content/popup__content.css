@@ -19,8 +19,8 @@
     to {top:0; opacity:1;}
 }
 @keyframes animatetop {
-    from {top:-300px; opacity:0}
-    to {top:0; opacity:1}
+    from {top:-300px; opacity:0;}
+    to {top:0; opacity:1;}
 }
 @media (max-width: 619px)  {
     .popup__content {
