@@ -1,9 +1,0 @@
-.profile__wrapper {
-    display: flex;
-    align-items: baseline;
-}
-@media (max-width: 619px)  {
-    .profile__wrapper {
-        justify-content: center;
-    }
-}
