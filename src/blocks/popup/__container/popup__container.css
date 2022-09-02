@@ -16,7 +16,7 @@
 @-webkit-keyframes animatetop {
     from {
         top:-300px;
-         opacity:0;
+        opacity:0;
         } 
     to {
         top:0;
@@ -24,10 +24,12 @@
     }
 }
 @keyframes animatetop {
-    from {top:-300px;
+    from {
+        top:-300px;
         opacity:0;
     }
-    to {top:0;
+    to {
+        top:0;
         opacity:1;
     }
 }
