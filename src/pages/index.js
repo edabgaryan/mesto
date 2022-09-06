@@ -45,7 +45,7 @@ sectionCards.renderItems();
 const newCard = new PopupWithForm (
   selectors.popupFormAdd, {
   submitForm: (data) => {
-    const {'popup__input_form_name-place"': name, 'popup__input_form_source-on-place': link} = data;
+    const {'popup__input-text_name-place': name, 'popup__input-text_source-on-place': link} = data;
     sectionCards.addItem(createCard({name, link}));
     newCard.close();
   }
@@ -58,7 +58,7 @@ const user = new UserInfo (selectors.fullNameProfile, selectors.professionProfil
 const profileForm = new PopupWithForm (
   selectors.popupFormProfile, {
   submitForm: (data) => {
-    const {'popup__input_form_name': name, 'popup__input_form_profession': info} = data;
+    const {'popup__input-text_fullname': name, 'popup__input-text_profession': info} = data;
     user.setUserInfo({name, info});
     profileForm.close();
   }
