@@ -25,26 +25,41 @@ export const initialCards = [
     }
 ];
 
-export const classPopupOpened = 'popup_opened';
-export const closeButtonPopup = '.popup__close';
-
-export const form = {
-    inputSelector: '.popup__input',
-    submitButtonSelector: '.popup__form-btn',
-    activeButtonClass: 'ppopup__input_border-bottom_black',
-    inactiveButtonClass: 'popup__form-btn_disabled',
-    buttonClass: 'popup__form-btn_hover',
-    errorSelector: '.popup__input-text_error-visible',
+export const selectors = {
+    //Popup
+    popupFormProfile: ".popup_form_profile",
+    popupFormAdd: ".popup_form_add",
+    popupOpenPicture: ".popup_open_picture",
+    closeButtonPopup: ".popup__close",
+    popupFormName: ".popup__form-name", 
+    popupFormPlace: ".popup__form-place",
+    fullNameForm: ".popup__input_form_name",
+    professionForm: ".popup__input_form_profession",
+    popupPicture: ".popup__picture",
+    popupFigcaption: ".popup__figcaption",
+    namePlaceFormPopup: ".popup__input_form_name-place",
+    placeSourceFormPopup: ".popup__input_form_source-on-place",
+    //Profile
+    infoButtonProfile: ".profile__info-button",
+    addButtonProfile: ".profile__add-button",
+    fullNameProfile: ".profile__title",
+    professionProfile: ".profile__paragraph",
+    //Card
+    elementsContainer: ".elements__cards",
+    card: ".card",
+    template: ".template",
+    trashButton: ".card__button-delete",
+    cardButtonLike: ".card__like",
+    cardImage: ".card__image",
+    cardTitle: ".card__title",
+    popupForm: '.popup__form',
+    formInput: '.popup__input',
   };
-  
-  // для поиска на странице
-  const page = document.querySelector('.page');
-  
-  const profile = page.querySelector('.profile');
-  const profileInfo = profile.querySelector('.profile__info');
-  // all buttons in profile
-  export const profileEditButton = profileInfo.querySelector('.profile__info-button');
-  export const profileAddNewCardButton = profile.querySelector('.profile__add-button');
-  
-  export const popupEditForm = page.querySelector('.popup__form-name');
-  export const popupAddForm = page.querySelector('.popup__form-place');
+
+export const infoButtonProfile = document.querySelector(selectors.infoButtonProfile);
+export const addButtonProfile = document.querySelector(selectors.addButtonProfile);
+export const popupFormName = document.querySelector(selectors.popupFormName);
+export const popupFormPlace = document.querySelector(selectors.popupFormPlace);
+export const fullNameForm = document.querySelector(selectors.fullNameForm);
+export const professionForm = document.querySelector(selectors.professionForm);
+export const elementsContainer = document.querySelector(selectors.elementsContainer);
