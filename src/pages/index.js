@@ -2,7 +2,7 @@ import './index.css';
 
 import {
   selectors,
-  form,
+  validationConfig,
   infoButtonProfile,
   addButtonProfile,
   popupFormName,
@@ -67,8 +67,8 @@ const profileForm = new PopupWithForm (
 
 profileForm.setEventListeners();
 
-const profileValidation = new FormValidator(form, popupFormName);
-const newCardValidation = new FormValidator(form, popupFormPlace);
+const profileValidation = new FormValidator(validationConfig, popupFormName);
+const newCardValidation = new FormValidator(validationConfig, popupFormPlace);
 profileValidation.enableValidation();
 newCardValidation.enableValidation();
 
