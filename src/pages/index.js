@@ -39,26 +39,27 @@ const sectionCards = new Section ({
     sectionCards.addItem(createCard(cardItem));
   }
 }, elementsContainer);
+
 sectionCards.renderItems();
 
-const newCard = new PopupWithForm (
+const popupAddCard = new PopupWithForm (
   selectors.popupFormAdd, {
   submitForm: (data) => {
     const {'popup__input-text_name-place': name, 'popup__input-text_source-on-place': link} = data;
     sectionCards.addItem(createCard({name, link}));
-    newCard.close();
+    popupAddCard.close();
   }
 }, selectors);
 
-newCard.setEventListeners();
+popupAddCard.setEventListeners();
 
-const user = new UserInfo (selectors.fullNameProfile, selectors.professionProfile);
+const userInfo = new UserInfo (selectors.fullNameProfile, selectors.professionProfile);
 
 const profileForm = new PopupWithForm (
   selectors.popupFormProfile, {
   submitForm: (data) => {
     const {'popup__input-text_fullname': name, 'popup__input-text_profession': info} = data;
-    user.setUserInfo({name, info});
+    userInfo.setUserInfo({name, info});
     profileForm.close();
   }
 }, selectors);
@@ -71,7 +72,7 @@ profileValidation.enableValidation();
 newCardValidation.enableValidation();
 
 infoButtonProfile.addEventListener('click', () => {
-  const {name, info} = user.getUserInfo();
+  const {name, info} = userInfo.getUserInfo();
   fullNameForm.value = name;
   professionForm.value = info;
   profileValidation.resetValidation();
@@ -79,7 +80,7 @@ infoButtonProfile.addEventListener('click', () => {
 });
 
 addButtonProfile.addEventListener('click',() => {
-  newCard.open();
+  popupAddCard.open();
   popupFormPlace.reset();
   newCardValidation.resetValidation();
 });
