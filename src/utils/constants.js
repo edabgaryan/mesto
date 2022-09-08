@@ -56,6 +56,17 @@ export const selectors = {
     formInput: '.popup__input',
   };
 
+export const form = {
+    formSelector: '.popup__form',
+    inputSelector: '.popup__input',
+    submitButtonSelector: '.popup__form-btn',
+    inactiveButtonClass: 'popup__form-btn_disabled',
+    buttonWithFormValidity: 'popup__form-btn_hover',
+    inputErrorClass: 'popup__input_border-bottom_red',
+    inputValidity: 'popup__input_border-bottom_black',
+    errorVisibility: 'popup__input-text_error-visible',
+};  
+
 export const infoButtonProfile = document.querySelector(selectors.infoButtonProfile);
 export const addButtonProfile = document.querySelector(selectors.addButtonProfile);
 export const popupFormName = document.querySelector(selectors.popupFormName);
