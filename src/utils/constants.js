@@ -56,7 +56,7 @@ export const selectors = {
     formInput: '.popup__input',
   };
 
-export const form = {
+export const validationConfig = {
     formSelector: '.popup__form',
     inputSelector: '.popup__input',
     submitButtonSelector: '.popup__form-btn',
