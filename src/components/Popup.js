@@ -1,44 +1,37 @@
-import { closeButtonPopup } from '../utils/constants.js';
-import { classPopupOpened } from '../utils/constants.js';
-
-export class Popup {
-  constructor(popupSelector) {
-    this._selector = popupSelector;
-    this._popup = document.querySelector(this._selector);
-
+export default class Popup {
+  constructor(selectorPopup, selectors) {
+    this._popup = document.querySelector(selectorPopup);
+    this._popupButtonClose = this._popup.querySelector(selectors.closeButtonPopup);
+    this._popupOpened = 'popup_opened';
+    this._openPopup = document.querySelector('.popup_opened');
     this._handleEscClose = this._handleEscClose.bind(this);
-    this._closeByClick = this._closeByClick.bind(this);
-    this._buttonClose = this._popup.querySelector(closeButtonPopup);
   }
 
-  // функция зарытия поп-апа, по нажатию Esc
-  _handleEscClose(event) {
-    if (event.key === 'Escape') {
-      this.close();
-    }
-  }
-
-  // функция зарытия поп-апа, по клику
-  _closeByClick(event) {
-    if ((event.target === this._popup) || (event.target === this._buttonClose)) {
-      this.close();
-    }
-  }
-
-  //слушатели
-  setEventListeners() {
-    this._popup.addEventListener('mousedown', this._closeByClick);
-  }
-
-  // открытие поп-апа
   open() {
-    this._popup.classList.add(classPopupOpened);
-    window.addEventListener('keydown', this._handleEscClose);
+    this._popup.classList.add(this._popupOpened);
+    document.addEventListener('keydown', this._handleEscClose);
   }
 
-  // закрытие поп-апа
   close() {
-    window.removeEventListener('keydown', this._handleEscClose);
-    this._popup.classList.remove(classPopupOpened);
+    this._popup.classList.remove(this._popupOpened);
+    document.removeEventListener('keydown', this._handleEscClose);
+  }
+
+  setEventListeners() {
+    this._popupButtonClose.addEventListener('click', () => {
+      this.close();
+    });
+    
+    this._popup.addEventListener('click', (evt) => {
+      if (evt.target === evt.currentTarget) {
+        this.close(evt.target);
+      };
+    });
+  }
+
+  _handleEscClose(evt) {
+    if (evt.key === 'Escape') {
+      this.close(this._openPopup);
+    };
   }
 }

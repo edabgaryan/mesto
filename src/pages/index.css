@@ -1,5 +1,6 @@
 @import url(./../vendor/normalize.css);
 @import url(./../vendor/fonts/fonts.css);
+
 @import url(./../blocks/page/page.css);
 @import url(./../blocks/cards/cards.css);
 @import url(./../blocks/card/card.css);
@@ -30,6 +31,7 @@
 @import url(./../blocks/popup/__form-btn/_hover/popup__form-btn_hover.css);
 @import url(./../blocks/popup/__input/__border-bottom/popup__input_border-bottom_red.css);
 @import url(./../blocks/popup/__input/__border-bottom/popup__input_border-bottom_black.css);
+@import url(./../blocks/popup/__input/__border-bottom/popup__submit-button_valid.css);
 
 @import url(./../blocks/profile/profile.css);
 @import url(./../blocks/profile/__add-button/profile__add-button.css);
