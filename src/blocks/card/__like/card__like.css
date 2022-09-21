@@ -11,3 +11,20 @@
 .card__like:hover {
     opacity:.6;
 }       
+
+.card__like_number {
+    margin: 0;
+    
+    max-height: 16px;
+  
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+    text-align: center;
+  }
+  .popup__form-btn_hover {
+    cursor: pointer;
+    opacity: .8;
+    transition: opacity .5s linear;
+  }

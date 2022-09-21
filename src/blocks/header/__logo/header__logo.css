@@ -2,7 +2,8 @@
     display: block;
     width: 142px;
     height: 33px;
-}@media (max-width: 930px)  {
+}
+@media (max-width: 930px)  {
     .header__logo {
         width: 104px;
         height: 24px;
